@@ -23,8 +23,9 @@ class CategoriesRepository {
   }
 
   async delete(id) {
-    const deleteOp = await db.query('DELETE FROM categories WHERE id = $1', [id]);
+    await db.query('UPDATE contacts SET category_id = NULL WHERE category_id = $1', [id]);
 
+    const deleteOp = await db.query('DELETE FROM categories WHERE id = $1', [id]);
     return deleteOp;
   }
 
