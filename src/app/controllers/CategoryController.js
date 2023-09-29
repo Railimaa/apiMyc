@@ -36,7 +36,6 @@ class CategoryController {
 
     await CategoriesRepository.delete(id);
     response.send(204);
-
   }
 
   async update(request, response) {
